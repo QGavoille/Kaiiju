@@ -6,10 +6,10 @@ Subject: [PATCH] Add SIMD utilities
 Patch from Pufferfish
 
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 07efc7e9593f619c3b71bb3936077a66a0f2964d..8aa2f328f7fe3d85f7ddf05fa0259061eb950fff 100644
+index a4773bfd447b42eda69579745f3d7276d808aa81..e4f44b569e3df53a786cc178a0496f59715bbd09 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
-@@ -68,6 +68,12 @@ dependencies {
+@@ -66,6 +66,12 @@ dependencies {
  }
  
  val craftbukkitPackageVersion = "1_20_R2" // Paper
@@ -128,7 +128,7 @@ index 0000000000000000000000000000000000000000..758fa97304a32bf17935c86dc03cbf50
 +}
 \ No newline at end of file
 diff --git a/src/main/java/net/minecraft/server/dedicated/DedicatedServer.java b/src/main/java/net/minecraft/server/dedicated/DedicatedServer.java
-index dcf8fd8ab06b10ecffae7332bc7e1a941b6a27a1..31397e53ab76266356c7582280d264c0f1df2504 100644
+index 4c67776419c64d81731e24d7bb94418f3fbf4590..420f35e06da504d52b535cb6e4c6fe0bc866f9b4 100644
 --- a/src/main/java/net/minecraft/server/dedicated/DedicatedServer.java
 +++ b/src/main/java/net/minecraft/server/dedicated/DedicatedServer.java
 @@ -225,6 +225,7 @@ public class DedicatedServer extends MinecraftServer implements ServerInterface

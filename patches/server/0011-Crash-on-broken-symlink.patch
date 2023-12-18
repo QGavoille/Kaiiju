@@ -42,10 +42,10 @@ index abf5e2a06af9853b58ac9107cd6e9787c4185c66..389c68c0becd2f69dc1004d0b383f1a8
          long expectedChunks = (long)regionFiles.length * (32L * 32L);
  
 diff --git a/src/main/java/net/minecraft/server/level/ChunkMap.java b/src/main/java/net/minecraft/server/level/ChunkMap.java
-index 90991db650d2f0e9a3f7b00bb5b7586ade003bb0..c0ee91a1f333434a2529429d670b62a83aeeb7b2 100644
+index 56b02cc93ef7d8c605ba0c3b135a07f08b27df7c..dfe29d3a327593030608d4c42bf20d2aa4495fb2 100644
 --- a/src/main/java/net/minecraft/server/level/ChunkMap.java
 +++ b/src/main/java/net/minecraft/server/level/ChunkMap.java
-@@ -210,7 +210,7 @@ public class ChunkMap extends ChunkStorage implements ChunkHolder.PlayerProvider
+@@ -212,7 +212,7 @@ public class ChunkMap extends ChunkStorage implements ChunkHolder.PlayerProvider
      // Paper end - optimise chunk tick iteration
  
      public ChunkMap(ServerLevel world, LevelStorageSource.LevelStorageAccess session, DataFixer dataFixer, StructureTemplateManager structureTemplateManager, Executor executor, BlockableEventLoop<Runnable> mainThreadExecutor, LightChunkGetter chunkProvider, ChunkGenerator chunkGenerator, ChunkProgressListener worldGenerationProgressListener, ChunkStatusUpdateListener chunkStatusChangeListener, Supplier<DimensionDataStorage> persistentStateManagerFactory, int viewDistance, boolean dsync) {
@@ -54,7 +54,7 @@ index 90991db650d2f0e9a3f7b00bb5b7586ade003bb0..c0ee91a1f333434a2529429d670b62a8
          // Paper - rewrite chunk system
          this.tickingGenerated = new AtomicInteger();
          //this.playerMap = new PlayerMap(); // Folia - region threading
-@@ -255,7 +255,7 @@ public class ChunkMap extends ChunkStorage implements ChunkHolder.PlayerProvider
+@@ -257,7 +257,7 @@ public class ChunkMap extends ChunkStorage implements ChunkHolder.PlayerProvider
          this.lightEngine = new ThreadedLevelLightEngine(chunkProvider, this, this.level.dimensionType().hasSkyLight(), null, null); // Paper - rewrite chunk system
          this.distanceManager = new ChunkMap.ChunkDistanceManager(executor, mainThreadExecutor);
          this.overworldDataStorage = persistentStateManagerFactory;
@@ -64,7 +64,7 @@ index 90991db650d2f0e9a3f7b00bb5b7586ade003bb0..c0ee91a1f333434a2529429d670b62a8
          // Paper start
          this.dataRegionManager = new io.papermc.paper.chunk.SingleThreadChunkRegionManager(this.level, 2, (1.0 / 3.0), 1, 6, "Data", DataRegionData::new, DataRegionSectionData::new);
 diff --git a/src/main/java/net/minecraft/server/level/ServerLevel.java b/src/main/java/net/minecraft/server/level/ServerLevel.java
-index eb7a06f4d0e87d8cba86c7eccf2c1fa02ad503d2..95e4ea89dbffb72322506e5e6c79e3605e2f9593 100644
+index 8526e6918e094aa74bd7a3df626313fb0fadf9a3..a79136c605cfbb89b31d6fad59d140843c937bda 100644
 --- a/src/main/java/net/minecraft/server/level/ServerLevel.java
 +++ b/src/main/java/net/minecraft/server/level/ServerLevel.java
 @@ -451,8 +451,8 @@ public class ServerLevel extends Level implements WorldGenLevel {

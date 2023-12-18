@@ -22,10 +22,10 @@ index b11a329ead2347917d24d932c9a1a826d288f5b6..2f3827441987528d79d9268002c7a767
  
      public static String serverModName = "Kaiiju";
 diff --git a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
-index 10ce902a1ce857db5376c8318ba0e67b53883873..4e87165f0a155ace79d9c249c5546951db00dc39 100644
+index 159d3a27c1686fd2b0025cab5b7e7775679c4ce9..036192d13dbbe52c7d8d7c59e7770036327ae370 100644
 --- a/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
 +++ b/src/main/java/net/minecraft/server/network/ServerGamePacketListenerImpl.java
-@@ -2536,6 +2536,7 @@ public class ServerGamePacketListenerImpl extends ServerCommonPacketListenerImpl
+@@ -2537,6 +2537,7 @@ public class ServerGamePacketListenerImpl extends ServerCommonPacketListenerImpl
          PacketUtils.ensureRunningOnSameThread(packet, this, this.player.serverLevel());
          if (this.player.isImmobile()) return; // CraftBukkit
          this.player.resetLastActionTime();
@@ -33,7 +33,7 @@ index 10ce902a1ce857db5376c8318ba0e67b53883873..4e87165f0a155ace79d9c249c5546951
          // CraftBukkit start - Raytrace to look for 'rogue armswings'
          float f1 = this.player.getXRot();
          float f2 = this.player.getYRot();
-@@ -2568,6 +2569,7 @@ public class ServerGamePacketListenerImpl extends ServerCommonPacketListenerImpl
+@@ -2569,6 +2570,7 @@ public class ServerGamePacketListenerImpl extends ServerCommonPacketListenerImpl
  
          if (event.isCancelled()) return;
          // CraftBukkit end
